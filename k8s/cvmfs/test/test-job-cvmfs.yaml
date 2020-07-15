@@ -17,8 +17,32 @@ spec:
           volumeMounts:
             - name: cvmfs-config-atlas
               mountPath: /cvmfs/atlas.cern.ch
+            - name: cvmfs-config-atlas-condb
+                mountPath: /cvmfs/atlas-condb.cern.ch
+            - name: cvmfs-config-atlas-nightlies
+                mountPath: /cvmfs/atlas-nightlies.cern.ch
+            - name: cvmfs-config-grid
+                mountPath: /cvmfs/grid.cern.ch
+            - name: cvmfs-config-sft
+                mountPath: /cvmfs/sft.cern.ch
       volumes:
         - name: cvmfs-config-atlas
           persistentVolumeClaim:
             claimName: cvmfs-config-atlas
+            readOnly: true
+        - name: cvmfs-config-atlas-condb
+          persistentVolumeClaim:
+            claimName: cvmfs-config-atlas-condb
+            readOnly: true
+        - name: cvmfs-config-atlas-nightlies
+          persistentVolumeClaim:
+            claimName: cvmfs-config-atlas-nightlies
+            readOnly: true
+        - name: cvmfs-config-grid
+          persistentVolumeClaim:
+            claimName: cvmfs-config-grid
+            readOnly: true
+        - name: cvmfs-config-sft
+          persistentVolumeClaim:
+            claimName: cvmfs-config-sft
             readOnly: true
