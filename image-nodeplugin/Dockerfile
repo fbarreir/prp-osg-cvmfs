@@ -1,7 +1,7 @@
 FROM centos:centos7
 
 # OSG RPMs
-RUN yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm && \
+RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm && \
     yum install -y cvmfs
 
 RUN yum clean all

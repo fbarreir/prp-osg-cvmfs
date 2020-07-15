@@ -31,7 +31,7 @@ spec:
           name:  cvmfs-root
       containers:
       - name: cvmfs
-        image: sfiligoi/prp-osg-cvmfs:nodeplugin
+        image: fbarreir/cvmfs-prp:latest
         imagePullPolicy: Always
         securityContext:
           privileged: true
