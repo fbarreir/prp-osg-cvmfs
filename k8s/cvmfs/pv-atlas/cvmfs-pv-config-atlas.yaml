@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: osgcpus-cvmfs-ligo-containers
+  name: osgcpus-cvmfs-config-atlas
 # Local storage does not need a provisioner
 provisioner: kubernetes.io/no-provisioner
 # Give it out as-is
@@ -11,7 +11,7 @@ volumeBindingMode: Immediate
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: osgcpus-cvmfs-ligo-containers
+  name: cvmfs-config-atlas
 spec:
   capacity:
     storage: 2Gi
@@ -19,9 +19,9 @@ spec:
   accessModes:
   - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: osgcpus-cvmfs-ligo-containers
+  storageClassName: cvmfs-config-atlas
   local:
-    path: /cvmfs-k8s/ligo-containers.opensciencegrid.org
+    path: /cvmfs-k8s/atlas.cern.ch
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -34,12 +34,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cvmfs-ligo-containers
-  namespace: osgcpus
+  name: cvmfs-config-atlas
+  namespace: cvmfs
 spec:
   accessModes:
   - ReadOnlyMany
   resources:
     requests:
       storage: 2Gi
-  storageClassName: osgcpus-cvmfs-ligo-containers
+  storageClassName: cvmfs-config-atlas
+
