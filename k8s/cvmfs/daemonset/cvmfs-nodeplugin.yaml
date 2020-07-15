@@ -18,6 +18,11 @@ spec:
       initContainers:
       - name: create-mountpoint
         image: busybox
+        securityContext:
+          privileged: true
+          capabilities:
+            add: ["SYS_ADMIN"]
+          allowPrivilegeEscalation: true
         command: ['sh', '-c', "mkdir -p /cvmfs-root/cvmfs-k8s"]
         resources:
            limits:

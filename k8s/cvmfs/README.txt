@@ -9,7 +9,7 @@ kubectl create -f  namespace/
 # the daemonset will need service account
 kubectl create -f  accounts/
 
-# create the cmvmfs supporting processes in default cvmfs namespace
+# create the CVMFS supporting processes in default cvmfs namespace
 kubectl create -f pv-root/
 kubectl create -f daemonset/
 
