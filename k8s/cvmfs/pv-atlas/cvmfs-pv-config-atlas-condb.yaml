@@ -21,7 +21,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: cvmfs-config-atlas-condb
   local:
-    path: /cvmfs-k8s/atlas.cern.ch
+    path: /cvmfs-k8s/atlas-condb.cern.ch
   nodeAffinity:
     required:
       nodeSelectorTerms:
