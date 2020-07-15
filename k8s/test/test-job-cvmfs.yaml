@@ -1,0 +1,24 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-pod
+spec:
+  ttlSecondsAfterFinished: 172800
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: atlas-grid-centos7
+          image: atlasadc/atlas-grid-centos7
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
+          volumeMounts:
+            - name: cvmfs-config-atlas
+              mountPath: /cvmfs/atlas.cern.ch
+      volumes:
+        - name: cvmfs-config-atlas
+          persistentVolumeClaim:
+            claimName: cvmfs-config-atlas
+            readOnly: true

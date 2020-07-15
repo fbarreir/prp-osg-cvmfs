@@ -15,3 +15,6 @@ kubectl create -f daemonset/
 
 # Create the PersistentStorageClaims
 kubectl create -f pv-atlas/
+
+# Just if you want to test: create a job that sleeps forever, so you can log into the container and see cvmfs works
+kubectl create -f test/test-job-cvmfs.yaml
