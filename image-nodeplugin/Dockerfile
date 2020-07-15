@@ -1,10 +1,8 @@
 FROM centos:centos7
 
 # OSG RPMs
-RUN yum -y install https://repo.opensciencegrid.org/osg/3.5/osg-3.5-el7-release-latest.rpm && \
-    yum -y install epel-release \
-                   yum-plugin-priorities && \
-    yum -y install osg-oasis
+RUN yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm && \
+    yum install -y cvmfs
 
 RUN yum clean all
 
