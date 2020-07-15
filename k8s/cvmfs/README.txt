@@ -3,6 +3,9 @@
 # check what the Squid IP is and adjust daemonset/cvmfs-nodeplugin.yaml
 ./show_squid.sh
 
+# create the cvmfs namespace
+kubectl create -f  namespace/
+
 # the daemonset will need service account
 kubectl create -f  accounts/
 
