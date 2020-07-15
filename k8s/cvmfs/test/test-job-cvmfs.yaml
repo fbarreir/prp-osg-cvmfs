@@ -18,13 +18,13 @@ spec:
             - name: cvmfs-config-atlas
               mountPath: /cvmfs/atlas.cern.ch
             - name: cvmfs-config-atlas-condb
-                mountPath: /cvmfs/atlas-condb.cern.ch
+              mountPath: /cvmfs/atlas-condb.cern.ch
             - name: cvmfs-config-atlas-nightlies
-                mountPath: /cvmfs/atlas-nightlies.cern.ch
+              mountPath: /cvmfs/atlas-nightlies.cern.ch
             - name: cvmfs-config-grid
-                mountPath: /cvmfs/grid.cern.ch
+              mountPath: /cvmfs/grid.cern.ch
             - name: cvmfs-config-sft
-                mountPath: /cvmfs/sft.cern.ch
+              mountPath: /cvmfs/sft.cern.ch
       volumes:
         - name: cvmfs-config-atlas
           persistentVolumeClaim:
