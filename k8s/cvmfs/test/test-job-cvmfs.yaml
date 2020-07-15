@@ -15,34 +15,34 @@ spec:
           command: [ "/bin/bash", "-c", "--" ]
           args: [ "while true; do sleep 30; done;" ]
           volumeMounts:
-            - name: cvmfs-config-atlas
+            - name: atlas
               mountPath: /cvmfs/atlas.cern.ch
-            - name: cvmfs-config-atlas-condb
+            - name: atlas-condb
               mountPath: /cvmfs/atlas-condb.cern.ch
-            - name: cvmfs-config-atlas-nightlies
+            - name: atlas-nightlies
               mountPath: /cvmfs/atlas-nightlies.cern.ch
-            - name: cvmfs-config-grid
+            - name: grid
               mountPath: /cvmfs/grid.cern.ch
-            - name: cvmfs-config-sft
+            - name: sft
               mountPath: /cvmfs/sft.cern.ch
       volumes:
-        - name: cvmfs-config-atlas
+        - name: atlas
           persistentVolumeClaim:
             claimName: cvmfs-config-atlas
             readOnly: true
-        - name: cvmfs-config-atlas-condb
+        - name: atlas-condb
           persistentVolumeClaim:
             claimName: cvmfs-config-atlas-condb
             readOnly: true
-        - name: cvmfs-config-atlas-nightlies
+        - name: atlas-nightlies
           persistentVolumeClaim:
             claimName: cvmfs-config-atlas-nightlies
             readOnly: true
-        - name: cvmfs-config-grid
+        - name: grid
           persistentVolumeClaim:
             claimName: cvmfs-config-grid
             readOnly: true
-        - name: cvmfs-config-sft
+        - name: sft
           persistentVolumeClaim:
             claimName: cvmfs-config-sft
             readOnly: true
