@@ -38,6 +38,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: cvmfs-root
+  namespace: cvmfs
 spec:
   accessModes:
   - ReadWriteOnce
