@@ -14,23 +14,14 @@ spec:
       labels:
         k8s-app: frontier-squid
     spec:
-      nodeSelector: 
-        kubernetes.io/hostname: xcache-11.t2.ucsd.edu
-      tolerations:
-      - effect: NoSchedule
-        key: nautilus.io/noceph
-        operator: Exists
-      - effect: NoSchedule
-        key: nautilus.io/chase-ci
-        operator: Exists
       containers:
       - name: frontier-squid
-        image: opensciencegrid/frontier-squid:fresh
+        image: fbarreir/frontier-squid:latest
         imagePullPolicy: Always
         #command: ["sh", "-c", "sleep infinity"]
         resources:
            limits:
-             memory: 16Gi
+             memory: 4Gi
              cpu: 1
            requests:
              memory: 2Gi

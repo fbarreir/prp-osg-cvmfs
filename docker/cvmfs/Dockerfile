@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-# OSG RPMs
+# Install CVMFS RPM
 RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm && \
     yum install -y cvmfs
 

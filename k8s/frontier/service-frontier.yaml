@@ -4,7 +4,6 @@ metadata:
   labels:
     k8s-app: frontier-squid
   name: frontier-squid
-  namespace: cvmfs
 spec:
   ports:
   - port: 3128
