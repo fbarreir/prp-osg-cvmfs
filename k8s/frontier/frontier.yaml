@@ -23,9 +23,11 @@ spec:
            limits:
              memory: 4Gi
              cpu: 1
+             ephemeral-storage: 20Gi
            requests:
              memory: 2Gi
              cpu: 1
+             ephemeral-storage: 10Gi
         env:
         - name: SQUID_IPRANGE
           value: "0.0.0.0/0"
