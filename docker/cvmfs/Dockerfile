@@ -8,7 +8,7 @@ RUN yum clean all
 
 ENV MOUNT_REPOS="atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch"
 ENV SQUID_URI="DIRECT"
-ENV QUOTA_LIMIT="4000"
+ENV QUOTA_LIMIT="6000"
 
 ADD wait-only.sh /usr/local/sbin/wait-only.sh
 ADD mount-and-wait.sh /usr/local/sbin/mount-and-wait.sh

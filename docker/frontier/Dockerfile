@@ -7,5 +7,7 @@ RUN yum install -y http://frontier.cern.ch/dist/rpms/RPMS/noarch/frontier-releas
 RUN yum clean all
 
 ADD run-squid.sh /usr/local/bin/run-squid.sh
+ADD run-squid.sh /usr/local/bin/fnget.py
+RUN chmod +x /usr/local/bin/fnget.py
 
 CMD source /usr/local/bin/run-squid.sh
