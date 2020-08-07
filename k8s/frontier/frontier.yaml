@@ -36,7 +36,7 @@ spec:
         volumeMounts:
           - name: config-map-frontier
             mountPath: /etc/squid/customize_k8s.sh
-            subPath: default.local
+            subPath: customize_k8s.sh
      volumes:
         - name: config-map-frontier
           configMap:
