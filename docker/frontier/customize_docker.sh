@@ -11,7 +11,7 @@
 #
 
 awk --file `dirname $0`/customhelps.awk --source '{
-# setoption("acl NET_LOCAL src", "0.0.0.0/32 172.16.0.0/12 192.168.0.0/16 fc00::/7 fe80::/10")
+setoption("acl NET_LOCAL src", "0.0.0.0/0 172.16.0.0/12 192.168.0.0/16 fc00::/7 fe80::/10")
 setoption("cache_mem", "128 MB")
 setoptionparameter("cache_dir", 3, "10000")
 print

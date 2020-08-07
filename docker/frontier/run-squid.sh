@@ -3,7 +3,7 @@
 
 if [[ ! -e /etc/squid/squid.conf ]]; then
   echo "Generating squid.conf..."
-  /etc/squid/customize_docker.sh < /etc/squid/squid.conf.frontierdefault > /etc/squid/squid.conf
+  /etc/squid/customize_k8s.sh < /etc/squid/squid.conf.frontierdefault > /etc/squid/squid.conf
 fi
 
 if [[ -z ${1} ]]; then
