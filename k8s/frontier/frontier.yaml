@@ -28,18 +28,15 @@ spec:
              memory: 2Gi
              cpu: 1
              ephemeral-storage: 10Gi
-        env:
-        # - name: SQUID_IPRANGE
-        #  value: "0.0.0.0/0"
         ports:
         - containerPort: 3128
         volumeMounts:
           - name: config-map-frontier
             mountPath: /etc/squid/customize_k8s.sh
             subPath: customize_k8s.sh
-     volumes:
-        - name: config-map-frontier
-          configMap:
-            name: config-map-frontier
-            defaultMode: 0777
+      volumes:
+      - name: config-map-frontier
+        configMap:
+          name: config-map-frontier
+          defaultMode: 0777
 
