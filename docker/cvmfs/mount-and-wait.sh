@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo `ls -lrt /cvmfs`
+
 if [ "x${SQUID_URI}" == "x" ]; then
   echo "Missing SQUID_URI" 1>&2
   exit 1
@@ -22,13 +24,21 @@ trap "/usr/local/sbin/force_unmount.sh" SIGTERM SIGINT
 
 mps=""
 for mp in `echo ${MOUNT_REPOS} |tr , ' '` ; do 
+ echo "Processing /cvmfs/${mp}"
 
- if [ -d /cvmfs/${mp} ]; then
+ #if [ -d /cvmfs/${mp} ]; then
    # force clean if already there
-   echo "WARNING: Found /cvmfs/${mp}. Unmounting." | tee -a /cvmfs/cvmfs-pod.log
-   umount -l /cvmfs/${mp}
-   rmdir /cvmfs/${mp}
- fi
+ #  echo "WARNING: Found /cvmfs/${mp}. Unmounting." | tee -a /cvmfs/cvmfs-pod.log
+ #  umount -l /cvmfs/${mp}
+ #  rmdir /cvmfs/${mp}
+ #else
+ #  echo "DID NOT SEE DIRECTORY /cvmfs/${mp}"
+ #fi
+
+ # There are situations where the above -d check does not see the directory. Force cleanup before trying to mount
+ umount -l /cvmfs/${mp}
+ rmdir /cvmfs/${mp}
+ echo `ls -lrt /cvmfs`
 
  mkdir -p /cvmfs/${mp}
  mount -t cvmfs ${mp} /cvmfs/${mp}
@@ -43,8 +53,11 @@ for mp in `echo ${MOUNT_REPOS} |tr , ' '` ; do
    for mp1 in $mps; do
      umount /cvmfs/${mp1}
    done
+   echo "Leaving"
    exit 2
  fi
+
+  echo "Finished /cvmfs/${mp}"
 done
 
 echo "$mps" > /etc/mount-and-wait.mps
