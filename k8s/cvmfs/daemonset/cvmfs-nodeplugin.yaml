@@ -73,7 +73,6 @@ spec:
           name:  cvmfs-root
           subPath: cvmfs-k8s
           mountPropagation: Bidirectional
-      priorityClassName: system-node-critical
       volumes:
       - name: cvmfs-root
         persistentVolumeClaim:
