@@ -50,8 +50,6 @@ spec:
         env:
         - name: MOUNT_REPOS
           value: "atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch"
-        - name: SQUID_URI
-          value: "DIRECT"
         resources:
            limits:
              memory: 4Gi
@@ -69,13 +67,18 @@ spec:
           periodSeconds: 10
           failureThreshold: 3
         volumeMounts:
-        - mountPath: /cvmfs
-          name:  cvmfs-root
+        - name:  cvmfs-root
+          mountPath: /cvmfs
           subPath: cvmfs-k8s
           mountPropagation: Bidirectional
+        - name: cvmfs-config
+          mountPath: /etc/cvmfs/
       priorityClassName: system-node-critical
       volumes:
       - name: cvmfs-root
         persistentVolumeClaim:
           claimName: cvmfs-root
+      - name: cvmfs-config
+        configMap:
+          name: cvmfs-config
 

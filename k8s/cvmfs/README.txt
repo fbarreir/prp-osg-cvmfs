@@ -9,6 +9,9 @@ kubectl create -f  namespace/
 # the daemonset will need service account
 kubectl create -f  accounts/
 
+# create a configmap with the desired local configuration
+kubectl create configmap cvmfs-config --from-file=cvmfs-config=configuration/default.local
+
 # create the CVMFS supporting processes in default cvmfs namespace
 # NOTE: some cloud OS might not allow to create the pv-root under the root / directory. 
 # For example in GKE you can run the pv-root under /mnt/disks. This path needs to be 
