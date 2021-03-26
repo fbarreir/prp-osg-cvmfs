@@ -49,7 +49,7 @@ spec:
               command: ["/usr/local/sbin/unmount-and-terminate.sh"]
         env:
         - name: MOUNT_REPOS
-          value: "atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch"
+          value: "atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch,sft-nightlies.cern.ch,unpacked.cern.ch"
         resources:
            limits:
              memory: 4Gi
@@ -59,10 +59,10 @@ spec:
              cpu: 0.01
         livenessProbe:
           exec:
-            command:  # returns 0 if there are 5 cvmfs mounts
+            command:  # returns 0(=Success) only if there are 7 cvmfs mounts
               - /bin/sh
               - -c
-              - "[ `df -h | grep cvmfs2 | wc -l` -eq 5 ]"
+              - "[ `df -h | grep cvmfs2 | wc -l` -eq 7 ]"
           initialDelaySeconds: 300
           periodSeconds: 10
           failureThreshold: 3

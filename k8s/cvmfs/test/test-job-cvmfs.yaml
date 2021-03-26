@@ -25,6 +25,10 @@ spec:
               mountPath: /cvmfs/grid.cern.ch
             - name: sft
               mountPath: /cvmfs/sft.cern.ch
+            - name: sft-nightlies
+              mountPath: /cvmfs/sft-nightlies.cern.ch
+            - name: unpacked
+              mountPath: /cvmfs/unpacked.cern.ch
       volumes:
         - name: atlas
           persistentVolumeClaim:
@@ -45,4 +49,12 @@ spec:
         - name: sft
           persistentVolumeClaim:
             claimName: cvmfs-config-sft
+            readOnly: true
+        - name: sft-nightlies
+          persistentVolumeClaim:
+            claimName: cvmfs-config-sft-nightlies
+            readOnly: true
+        - name: unpacked
+          persistentVolumeClaim:
+            claimName: cvmfs-config-unpacked
             readOnly: true
