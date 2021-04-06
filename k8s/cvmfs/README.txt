@@ -9,7 +9,8 @@ kubectl create -f  namespace/
 # the daemonset will need service account
 kubectl create -f  accounts/
 
-# create a configmap with the desired local configuration
+# edit configuration/default.local to your desired frontier squid
+# then create the configmap to upload the local configuration to kubernetes
 kubectl create configmap cvmfs-config --from-file=cvmfs-config=configuration/default.local
 
 # create the CVMFS supporting processes in default cvmfs namespace
