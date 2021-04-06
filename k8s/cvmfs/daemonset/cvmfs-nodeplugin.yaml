@@ -53,7 +53,7 @@ spec:
         - name: SQUID_URI
           value: "10.100.97.166:3128"
         - name: QUOTA_LIMIT
-          value: 6000
+          value: "6000"
         resources:
            limits:
              memory: 4Gi
