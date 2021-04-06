@@ -36,7 +36,7 @@ spec:
           name:  cvmfs-root
       containers:
       - name: cvmfs
-        image: fbarreir/cvmfs-prp:latest
+        image: fbarreir/cvmfs-prp:configmap
         imagePullPolicy: Always
         securityContext:
           privileged: true
