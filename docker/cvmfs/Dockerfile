@@ -6,7 +6,7 @@ RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-
 
 RUN yum clean all
 
-ENV MOUNT_REPOS="atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch"
+ENV MOUNT_REPOS="atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,grid.cern.ch,sft.cern.ch,sft-nightlies.cern.ch,unpacked.cern.ch"
 ENV SQUID_URI="DIRECT"
 ENV QUOTA_LIMIT="6000"
 
