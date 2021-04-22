@@ -21,7 +21,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: cvmfs-config-unpacked
   local:
-    path: /cvmfs-k8s/unpacked.cern.ch
+    path: /mnt/disks/cvmfs-k8s/unpacked.cern.ch
   nodeAffinity:
     required:
       nodeSelectorTerms:

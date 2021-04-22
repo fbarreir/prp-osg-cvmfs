@@ -21,7 +21,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: cvmfs-config-sft-nightlies
   local:
-    path: /cvmfs-k8s/sft-nightlies.cern.ch
+    path: /mnt/disks/cvmfs-k8s/sft-nightlies.cern.ch
   nodeAffinity:
     required:
       nodeSelectorTerms:
